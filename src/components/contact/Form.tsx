@@ -124,7 +124,7 @@ class Form extends Component<{
                 onClick={submit}
                 disabled={!nameValid || !emailValid}
                 variant="contained"
-                color="secondary"
+                color="primary"
                 size="large"
                 className="submit"
               >

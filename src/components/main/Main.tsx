@@ -13,7 +13,7 @@ const Main = () => (
         IQVIA's Contacts List
       </Typography>
       <Link to="/contacts">
-        <Button color="primary" variant="contained">View contacts</Button>
+        <Button color="secondary" variant="contained">View contacts</Button>
       </Link>
     </Box>
   </Container>

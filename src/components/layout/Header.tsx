@@ -7,12 +7,12 @@ import './Header.css';
 const Header = () => (
   <AppBar color="primary" className="header">
     <Link to="/">
-      <Button size="large" color="secondary" variant="outlined">
+      <Button size="large" color="secondary" variant="text">
         IQVIA
       </Button>
     </Link>
     <Link to="/contacts">
-      <Button size="small" color="secondary" variant="outlined">
+      <Button size="small" color="secondary" variant="text">
         Contacts
       </Button>
     </Link>
