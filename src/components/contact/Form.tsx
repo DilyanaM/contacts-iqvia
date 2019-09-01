@@ -61,6 +61,8 @@ class Form extends Component<{
     }
   }
 
+  redirect = () => this.setState({ redirect: true });
+
   render() {
     const {
       id,
@@ -109,11 +111,7 @@ class Form extends Component<{
         <Mutation
           mutation={mutation === 'ADD_CONTACT' ? ADD_CONTACT : UPDATE_CONTACT}
           refetchQueries={() => [{ query: GET_CONTACTS }]}
-          onCompleted={() => {
-            this.setState({
-              redirect: true
-            })
-          }}
+          onCompleted={this.redirect}
         >
           {(onMutate) => {
             const submit = () => {

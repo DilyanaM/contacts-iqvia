@@ -9,10 +9,8 @@ import './Main.css';
 const Main = () => (
   <Container className="main-container">
     <Box className="inner-container">
-      <Typography
-        variant="h3"
-        className="main-title">
-          IQVIA's Contacts List
+      <Typography variant="h3" className="main-title">
+        IQVIA's Contacts List
       </Typography>
       <Link to="/contacts">
         <Button color="primary" variant="contained">View contacts</Button>

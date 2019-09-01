@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import Form from './Form';
 
-class Add extends Component<{}, {id: string, name: string, email: string}> {
-  constructor(props: any) {
-    super(props);
-
-    this.state = {
-      id: '',
-      name: '',
-      email: ''
-    }
+class Add extends Component {
+  state = {
+    id: '',
+    name: '',
+    email: ''
   }
 
   render() {
@@ -17,11 +13,11 @@ class Add extends Component<{}, {id: string, name: string, email: string}> {
 
     return (
       <Form
-        title="Add contact"
         id={id}
         name={name}
         email={email}
         mutation="ADD_CONTACT"
+        title="Add contact"
       />
     );
   }

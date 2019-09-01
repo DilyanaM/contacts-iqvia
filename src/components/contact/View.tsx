@@ -17,6 +17,8 @@ class Contact extends Component<RouteComponentProps<any>> {
     redirect: false
   }
 
+  redirect = () => this.setState({ redirect: true });
+
   render() {
     const { id } = this.props.match.params;
     const { redirect } = this.state;
@@ -31,10 +33,7 @@ class Contact extends Component<RouteComponentProps<any>> {
           return (
             <div className="view-container">
               {!!redirect && <Redirect to="/contacts" />}
-              <Typography
-                variant="h4"
-                className="view-title"
-              >
+              <Typography variant="h4" className="view-title">
                 Contact
               </Typography>
               <Typography variant="h5">
@@ -45,17 +44,14 @@ class Contact extends Component<RouteComponentProps<any>> {
               </Typography>
               <Box className="buttons-container">
                 <Link to={`/contacts/${id}/update`}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                  >
+                  <Button variant="contained" color="primary" >
                     Edit
                   </Button>
                 </Link>
                 <Mutation
                   mutation={DELETE_CONTACT}
                   refetchQueries={() => [{ query: GET_CONTACTS }]}
-                  onCompleted={() => this.setState({ redirect: true })}
+                  onCompleted={this.redirect}
                 >
                   {(onMutate) => {
                     const submit = () => onMutate({ variables: { id } });

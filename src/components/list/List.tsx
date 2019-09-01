@@ -10,25 +10,26 @@ import './List.css';
 
 const ContactsList = (props: any) => {
   return (
-    <List>
-      {!!props.contacts.length && props.contacts.map(
-        ({ id, name, email }: { id: string, name: string, email: string}) => (
-          <ListItem key={id} className="contact-item">
-            <ListItemText
-              primary={name}
-              secondary={email}
-            />
-            <ListItemSecondaryAction>
-              <Link to={`/contacts/${id}`}>
-                <IconButton edge="end" aria-label="delete">
-                  <ArrowForwardIosIcon />
-                </IconButton>
-              </Link>
-            </ListItemSecondaryAction>
-          </ListItem>
-        )
+    <div>
+      {!!props.contacts.length && (
+        <List>
+          {props.contacts.map(
+            ({ id, name, email }: { id: string, name: string, email: string}) => (
+              <ListItem key={id} className="contact-item">
+                <ListItemText primary={name} secondary={email} />
+                <ListItemSecondaryAction>
+                  <Link to={`/contacts/${id}`}>
+                    <IconButton edge="end" aria-label="delete">
+                      <ArrowForwardIosIcon />
+                    </IconButton>
+                  </Link>
+                </ListItemSecondaryAction>
+              </ListItem>
+            )
+          )}
+        </List>
       )}
-    </List>
+    </div>
   );
 };
 
