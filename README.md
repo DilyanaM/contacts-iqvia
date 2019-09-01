@@ -1,27 +1,12 @@
 # Contact Manager
 
-## Features to implement
+## Features
 
 - List Contacts
 - View Contact
 - Add Contact
 - Delete Contact
 - Edit Contact
-- Clean routing i.e '/contact/:id'
-- Use material-ui for components
-
-### Bonuses
-
-- Use [xstate](https://xstate.js.org/docs) to manage app state.
-- Connect to the graphql endpoint http://localhost:3001 by using create-react-app proxy feature
-- Use the graphql endpoint to get/create/update/delete
-
-### Contact
-
-- Name eg 'John Smith'
-- Email eg 'john@smith.com'
-- Date Modified eg '31-01-2018 15:04'
-- Date Created eg '31-01-2018 15:04'
 
 ## Available Scripts
 
@@ -31,7 +16,7 @@ In the project directory, you can run:
 
 Runs the app in the development mode.
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Opens the app at [http://localhost:3000](http://localhost:3000) in the browser.
 
 The page will reload if you make edits.
 You will also see any lint errors in the console.
