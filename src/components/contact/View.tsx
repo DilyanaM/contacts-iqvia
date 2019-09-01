@@ -1,41 +1,52 @@
-import React from "react";
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
-import { Mutation } from 'react-apollo';
+import { RouteComponentProps, Redirect } from "react-router";
+import { Query, Mutation } from 'react-apollo';
 import GET_CONTACT from '../../graphql/queries/contact';
 import GET_CONTACTS from '../../graphql/queries/contactsList';
-import DELETE_CONTACT from "../../graphql/mutations/deleteContact";
+import DELETE_CONTACT from '../../graphql/mutations/deleteContact';
 
-const Contact = (props: any) => {
-  const { id } = props.match.params;
-  const { loading, error, data } = useQuery(GET_CONTACT, {
-    variables: { id },
-  });
-  
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+class Contact extends Component<RouteComponentProps<any>> {
+  state = {
+    redirect: false
+  }
 
-  const { name, email } = data.contact;
-  
-  return (
-    <div>
-      <p>{name}</p>
-      <p>{email}</p>
-      <Link to={`/contacts/${id}/update`}>
-        <button>Edit contact</button>
-      </Link>
-      <Mutation
-        mutation={DELETE_CONTACT}
-        refetchQueries={() => [{ query: GET_CONTACTS }]}
-      >
-        {(onMutate) => {
-          const submit = () => onMutate({ variables: { id } });
-          return <button onClick={submit}>Delete</button>
+  render() {
+    const { id } = this.props.match.params;
+    const { redirect } = this.state;
+
+    return (
+      <Query query={GET_CONTACT} variables={{ id }}>
+        {({ loading, error, data }) => {
+          if (loading) return <div>Loading</div>;
+          if (error) return <div>Error</div>;
+          const { name, email } = data.contact;
+
+          return (
+            <div>
+              {!!redirect && <Redirect to="/contacts" />}
+              <p>{name}</p>
+              <p>{email}</p>
+              <Link to={`/contacts/${id}/update`}>
+                <button>Edit contact</button>
+              </Link>
+              <Mutation
+                mutation={DELETE_CONTACT}
+                refetchQueries={() => [{ query: GET_CONTACTS }]}
+                onCompleted={() => this.setState({ redirect: true })}
+              >
+                {(onMutate) => {
+                  const submit = () => onMutate({ variables: { id } });
+                  return <button onClick={submit}>Delete</button>
+                }}
+              </Mutation>
+            </div>
+          );
         }}
-      </Mutation>
-    </div>
-  );
-};
+      </Query>
+    )
+  }
+}
 
 export default Contact;
 
