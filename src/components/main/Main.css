@@ -7,3 +7,19 @@
   align-items: center;
   background-color: #D8EAFF;
 }
+
+.inner-container {
+  padding: 50px;
+  background-color: rgba(245, 0, 87, 0.3);
+  border-radius: .35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-title {
+  color: #3f51b5;
+  margin-bottom: 20px !important;
+  font-weight: 500 !important;
+}

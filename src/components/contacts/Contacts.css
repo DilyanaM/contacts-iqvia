@@ -1,0 +1,15 @@
+.list-container {
+  max-width: 100vw !important;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.list-title {
+  color: #3f51b5;
+  font-weight: 500 !important;
+}

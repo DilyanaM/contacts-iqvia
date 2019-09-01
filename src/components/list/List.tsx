@@ -1,32 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/react-hooks';
-import GET_CONTACTS from '../../graphql/queries/contactsList';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import './List.css';
 
-const List = () => {
-  const { loading, error, data } = useQuery(GET_CONTACTS);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-
+const ContactsList = (props: any) => {
   return (
-    <div>
-      <Link to="/contacts/add">
-        <button>New</button>
-      </Link>
-      {data.contacts.map(
+    <List>
+      {!!props.contacts.length && props.contacts.map(
         ({ id, name, email }: { id: string, name: string, email: string}) => (
-          <div key={id}>
-            <p>
-              {name}: {email}
-            </p>
-            <Link to={`/contacts/${id}`}>
-              <button>View more</button>
-            </Link>
-          </div>
+          <ListItem key={id} className="contact-item">
+            <ListItemText
+              primary={name}
+              secondary={email}
+            />
+            <ListItemSecondaryAction>
+              <Link to={`/contacts/${id}`}>
+                <IconButton edge="end" aria-label="delete">
+                  <ArrowForwardIosIcon />
+                </IconButton>
+              </Link>
+            </ListItemSecondaryAction>
+          </ListItem>
         )
       )}
-    </div>
+    </List>
   );
 };
 
-export default List;
+export default ContactsList;

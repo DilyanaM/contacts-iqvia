@@ -1,0 +1,11 @@
+.contact-item {
+  background-color: rgba(245, 0, 87, 0.3) !important;
+  border: 1px solid rgba(245, 0, 87, 0.5) !important;
+  border-radius: 0.35rem;
+  margin-bottom: 5px;
+}
+
+.contact-item span {
+  color: #3f51b5;
+  font-weight: 500 !important;
+}
