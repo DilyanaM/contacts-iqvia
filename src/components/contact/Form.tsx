@@ -25,7 +25,11 @@ class Form extends Component<{
     title: this.props.title,
     redirect: false,
     nameValid: this.props.mutation === 'ADD_CONTACT' ? false : true,
-    emailValid: this.props.mutation === 'ADD_CONTACT' ? false : true
+    emailValid: this.props.mutation === 'ADD_CONTACT' ? false : true,
+    nameError: 'Name should be at least 3 characters',
+    emailError: 'Not a valid email',
+    nameTouched: false,
+    emailTouched: false
   }
 
   setFieldValue = (e: any) => {
@@ -41,6 +45,20 @@ class Form extends Component<{
         emailValid: validateField(name, value)
       });
     }
+    this.setFieldTouched(e);
+  }
+
+  setFieldTouched = (e: any) => {
+    const { name } = e.target;
+    if (name === 'name') {
+      this.setState({
+        nameTouched: true
+      })
+    } else {
+      this.setState({
+        emailTouched: true
+      })
+    }
   }
 
   render() {
@@ -52,7 +70,11 @@ class Form extends Component<{
       redirect,
       title,
       nameValid,
-      emailValid
+      emailValid,
+      nameTouched,
+      emailTouched,
+      nameError,
+      emailError
     } = this.state;
     return (
       <div className="contact-form">
@@ -67,6 +89,9 @@ class Form extends Component<{
           margin="normal"
           variant="outlined"
           onChange={this.setFieldValue}
+          onBlur={this.setFieldTouched}
+          error={!nameValid && nameTouched}
+          helperText={!nameValid && nameTouched ? nameError : ''}
         />
         <TextField
           required
@@ -77,6 +102,9 @@ class Form extends Component<{
           margin="normal"
           variant="outlined"
           onChange={this.setFieldValue}
+          onBlur={this.setFieldTouched}
+          error={!emailValid && emailTouched}
+          helperText={!emailValid && emailTouched ? emailError : ''}
         />
         <Mutation
           mutation={mutation === 'ADD_CONTACT' ? ADD_CONTACT : UPDATE_CONTACT}
