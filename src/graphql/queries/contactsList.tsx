@@ -1,4 +1,6 @@
-const GET_CONTACTS = `
+import { gql } from 'apollo-boost';
+
+const GET_CONTACTS = gql`
   {
     contacts {
       id,

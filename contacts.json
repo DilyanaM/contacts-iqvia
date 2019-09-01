@@ -1,3 +1,54 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "name": "another",
+      "email": "another@email.com",
+      "id": "DX1eqzs3tcy51uWIptYpJ"
+    },
+    {
+      "name": "another one",
+      "email": "another@one.com",
+      "id": "cNQAihpHFZmrXCP-E1Icr"
+    },
+    {
+      "name": "again",
+      "email": "again@email.com",
+      "id": "qXHLtQdIVNPgO667UgmCs"
+    },
+    {
+      "name": "newcontact",
+      "email": "new@contact.com",
+      "id": "eOE1dfEjinb7yviSgSzq3"
+    },
+    {
+      "name": "NEW",
+      "email": "new@email.com",
+      "id": "lMfBiSzCnrixHA-3DobJJ"
+    },
+    {
+      "name": "lala",
+      "email": "lala@alla.com",
+      "id": "EvtKUtmiVmbx8FYgWpyA3"
+    },
+    {
+      "name": "lala",
+      "email": "lala@alla.com",
+      "id": "eRktUkUetElimQBCBkkQo"
+    },
+    {
+      "name": "newContact",
+      "email": "new@contact.com",
+      "id": "97uQH2tNbHjF9N6hUmcZr"
+    },
+    {
+      "name": "ANOTHER",
+      "email": "test@emilc.om",
+      "id": "0KQZ1cWMXAYxTbTe907Ln"
+    },
+    {
+      "name": "NEW CONTACT",
+      "email": "new@email.com",
+      "id": "-KEMtqA0pFsuHXb3oLb0O"
+    }
+  ]
 }

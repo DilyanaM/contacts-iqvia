@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { Mutation } from 'react-apollo';
 import GET_CONTACT from '../../graphql/queries/contact';
+import GET_CONTACTS from '../../graphql/queries/contactsList';
 import DELETE_CONTACT from "../../graphql/mutations/deleteContact";
 
 const Contact = (props: any) => {
@@ -23,7 +24,10 @@ const Contact = (props: any) => {
       <Link to={`/contacts/${id}/update`}>
         <button>Edit contact</button>
       </Link>
-      <Mutation mutation={DELETE_CONTACT}>
+      <Mutation
+        mutation={DELETE_CONTACT}
+        refetchQueries={() => [{ query: GET_CONTACTS }]}
+      >
         {(onMutate) => {
           const submit = () => onMutate({ variables: { id } });
           return <button onClick={submit}>Delete</button>

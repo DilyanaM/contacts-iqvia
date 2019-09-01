@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Mutation } from 'react-apollo';
 import ADD_CONTACT from "../../graphql/mutations/addContact";
 import UPDATE_CONTACT from '../../graphql/mutations/updateContact';
+import GET_CONTACTS from "../../graphql/queries/contactsList";
 
 class Form extends Component<{
   id: string,
@@ -36,12 +37,13 @@ class Form extends Component<{
         />
         <Mutation
           mutation={mutation === 'ADD_CONTACT' ? ADD_CONTACT : UPDATE_CONTACT}
+          refetchQueries={() => [{ query: GET_CONTACTS }]}
         >
           {(onMutate) => {
             const submit = () => {
               mutation === 'ADD_CONTACT'
-              ? onMutate({ variables: { name, email } })
-              : onMutate({ variables: { id, name, email } })
+                ? onMutate({ variables: { name, email } })
+                : onMutate({ variables: { id, name, email } })
             };
             return (
               <button

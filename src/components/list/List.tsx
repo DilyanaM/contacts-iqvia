@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import GET_CONTACTS from '../../graphql/queries/contactsList';
 
 const List = () => {
-  const { loading, error, data } = useQuery(gql(GET_CONTACTS));
+  const { loading, error, data } = useQuery(GET_CONTACTS);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
