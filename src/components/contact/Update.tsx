@@ -16,6 +16,7 @@ class Update extends Component<RouteComponentProps<any>> {
 
           return (
             <Form
+              title="Edit contact"
               id={id}
               name={data.contact.name}
               email={data.contact.email}

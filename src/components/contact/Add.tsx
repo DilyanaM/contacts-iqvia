@@ -17,6 +17,7 @@ class Add extends Component<{}, {id: string, name: string, email: string}> {
 
     return (
       <Form
+        title="Add contact"
         id={id}
         name={name}
         email={email}
