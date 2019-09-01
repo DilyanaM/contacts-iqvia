@@ -1,0 +1,15 @@
+.error-container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container > div {
+  background-color: #f50057;
+}
+
+.error > div {
+  text-align: center;
+  width: 100%;
+}

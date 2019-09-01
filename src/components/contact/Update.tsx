@@ -3,6 +3,8 @@ import { RouteComponentProps } from "react-router";
 import { Query } from 'react-apollo';
 import GET_CONTACT from '../../graphql/queries/contact';
 import Form from './Form';
+import Loader from './../common/loader/Loader';
+import Error from './../common/error/Error';
 
 class Update extends Component<RouteComponentProps<any>> {
   render() {
@@ -11,8 +13,8 @@ class Update extends Component<RouteComponentProps<any>> {
     return (
       <Query query={GET_CONTACT} variables={{ id }}>
         {({ loading, error, data }) => {
-          if (loading) return <div>Loading</div>;
-          if (error) return <div>Error</div>;
+          if (loading) return <Loader />;
+          if (error) return <Error />;
 
           return (
             <Form

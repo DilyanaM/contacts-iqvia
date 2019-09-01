@@ -6,13 +6,15 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import List from '../list/List';
+import Loader from './../common/loader/Loader';
+import Error from './../common/error/Error';
 import GET_CONTACTS from '../../graphql/queries/contactsList';
 import './Contacts.css';
 
 const Contacts = () => {
   const { loading, error, data } = useQuery(GET_CONTACTS);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <Loader />;
+  if (error) return <Error />;
 
   return (
     <Container className="list-container">

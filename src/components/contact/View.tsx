@@ -8,6 +8,8 @@ import Button from '@material-ui/core/Button';
 import GET_CONTACT from '../../graphql/queries/contact';
 import GET_CONTACTS from '../../graphql/queries/contactsList';
 import DELETE_CONTACT from '../../graphql/mutations/deleteContact';
+import Loader from './../common/loader/Loader';
+import Error from './../common/error/Error';
 import './Contact.css';
 
 class Contact extends Component<RouteComponentProps<any>> {
@@ -22,8 +24,8 @@ class Contact extends Component<RouteComponentProps<any>> {
     return (
       <Query query={GET_CONTACT} variables={{ id }}>
         {({ loading, error, data }) => {
-          if (loading) return <div>Loading</div>;
-          if (error) return <div>Error</div>;
+          if (loading) return <Loader />;
+          if (error) return <Error />;
           const { name, email } = data.contact;
 
           return (
