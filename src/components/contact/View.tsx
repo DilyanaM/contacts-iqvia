@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { RouteComponentProps, Redirect } from "react-router";
+import { Link } from 'react-router-dom';
 import { Query, Mutation } from 'react-apollo';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import GET_CONTACT from '../../graphql/queries/contact';
 import GET_CONTACTS from '../../graphql/queries/contactsList';
 import DELETE_CONTACT from '../../graphql/mutations/deleteContact';
+import './Contact.css';
 
 class Contact extends Component<RouteComponentProps<any>> {
   state = {
@@ -23,23 +27,48 @@ class Contact extends Component<RouteComponentProps<any>> {
           const { name, email } = data.contact;
 
           return (
-            <div>
+            <div className="view-container">
               {!!redirect && <Redirect to="/contacts" />}
-              <p>{name}</p>
-              <p>{email}</p>
-              <Link to={`/contacts/${id}/update`}>
-                <button>Edit contact</button>
-              </Link>
-              <Mutation
-                mutation={DELETE_CONTACT}
-                refetchQueries={() => [{ query: GET_CONTACTS }]}
-                onCompleted={() => this.setState({ redirect: true })}
+              <Typography
+                variant="h4"
+                className="view-title"
               >
-                {(onMutate) => {
-                  const submit = () => onMutate({ variables: { id } });
-                  return <button onClick={submit}>Delete</button>
-                }}
-              </Mutation>
+                Contact
+              </Typography>
+              <Typography variant="h5">
+                <span className="contact-label">Name: </span>{name}
+              </Typography>
+              <Typography variant="h6">
+                <span className="contact-label">Email: </span>{email}
+              </Typography>
+              <Box className="buttons-container">
+                <Link to={`/contacts/${id}/update`}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                  >
+                    Edit
+                  </Button>
+                </Link>
+                <Mutation
+                  mutation={DELETE_CONTACT}
+                  refetchQueries={() => [{ query: GET_CONTACTS }]}
+                  onCompleted={() => this.setState({ redirect: true })}
+                >
+                  {(onMutate) => {
+                    const submit = () => onMutate({ variables: { id } });
+                    return (
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={submit}
+                      >
+                        Delete
+                      </Button>
+                    )
+                  }}
+                </Mutation>
+              </Box>
             </div>
           );
         }}

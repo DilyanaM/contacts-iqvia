@@ -1,9 +1,34 @@
+.view-container,
 .contact-form {
   display: flex;
   height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.view-title {
+  color: #3f51b5;
+  margin-bottom: 20px !important;
+  font-weight: 500 !important;
+}
+
+.view-container h5,
+.view-container h6 {
+  color: #f50057;
+}
+
+.contact-label {
+  color: #3f51b5;
+}
+
+.buttons-container {
+  margin: 15px 0;
+}
+
+.buttons-container button {
+  margin: 0 10px;
+  min-width: 90px;
 }
 
 .form-title {
