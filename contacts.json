@@ -1,7 +1,7 @@
 {
   "contacts": [
     {
-      "name": "ANOTHER",
+      "name": "test",
       "email": "test@emil.com",
       "id": "0KQZ1cWMXAYxTbTe907Ln"
     },
@@ -55,5 +55,15 @@
       "email": "another@email.com",
       "id": "454p_j7ufXbIMib0VrsaI"
     },
+    {
+      "name": "Dilyana Mihaylova",
+      "email": "dilyana.p.mihaylova@gmail.com",
+      "id": "mOSUyBDzMR8_t8X7SogLw"
+    },
+    {
+      "name": "Dilyana Mihaylova",
+      "email": "dilyana@email.com",
+      "id": "dnRZrINh1VNPgI9KxWTLC"
+    }
   ]
 }
