@@ -8,6 +8,12 @@
 - Delete Contact
 - Edit Contact
 
+## Setup
+
+To install dependencies run the following command in the project directory:
+
+### `npm install`
+
 ## Available Scripts
 
 In the project directory, you can run:
