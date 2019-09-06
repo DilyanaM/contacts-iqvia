@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { RouteComponentProps } from "react-router";
+import React, { Component } from 'react';
+import { RouteComponentProps } from 'react-router';
 import { Query } from 'react-apollo';
 import GET_CONTACT from '../../graphql/queries/contact';
 import Form from './Form';

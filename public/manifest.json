@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "IQVIA's Contacts Manager",
+  "name": "IQVIA's Contacts Manager",
   "icons": [
     {
       "src": "favicon.ico",

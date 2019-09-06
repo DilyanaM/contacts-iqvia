@@ -10,7 +10,7 @@ const Main = () => (
   <Container className="main-container">
     <Box className="inner-container">
       <Typography variant="h3" className="main-title">
-        IQVIA's Contacts List
+        IQVIA's Contact Manager
       </Typography>
       <Link to="/contacts">
         <Button color="secondary" variant="contained">View contacts</Button>
