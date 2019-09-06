@@ -5,14 +5,14 @@ import { shallow } from 'enzyme';
 import Update from './Update';
 
 const history = createMemoryHistory();
-const path = `/route/:id`;
+const path = `/contacts/:id/update`;
 
 const routeMatch: match<{ id: string }> = {
   isExact: false,
   path,
-  url: path.replace(':id', '1'),
+  url: path.replace(':id', 'LnpKC1t9kaIjJq2zXEkqH'),
   params: {
-    id: '1'
+    id: 'LnpKC1t9kaIjJq2zXEkqH'
   }
 };
 
