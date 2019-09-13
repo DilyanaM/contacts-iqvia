@@ -5,12 +5,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #D8EAFF;
 }
 
 .inner-container {
   padding: 50px;
-  background-color: #3f51b5;
+  background-color: var(--primary);
   border-radius: .35rem;
   display: flex;
   flex-direction: column;
@@ -19,7 +18,7 @@
 }
 
 .main-title {
-  color: #fff;
+  color: var(--white);
   margin-bottom: 20px !important;
   font-weight: 500 !important;
 }

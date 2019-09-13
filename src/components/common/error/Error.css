@@ -6,7 +6,7 @@
 }
 
 .error-container > div {
-  background-color: #f50057;
+  background-color: var(--secondary);
 }
 
 .error > div {
