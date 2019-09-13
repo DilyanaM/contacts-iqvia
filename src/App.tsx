@@ -7,22 +7,26 @@ import Contacts from "./components/contacts/Contacts";
 import Contact from './components/contact/View';
 import Add from './components/contact/Add';
 import Update from './components/contact/Update';
+import { ThemeProvider } from '@material-ui/styles';
+import defaultTheme from './themes/default';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <div className="app-container">
-          <Switch>
-            <Route exact path="/" component={Main} />
-            <Route exact path="/contacts" component={Contacts} />
-            <Route exact path="/contacts/add" component={Add} />
-            <Route exact path="/contacts/:id" component={Contact} />
-            <Route exact path="/contacts/:id/update" component={Update} />
-          </Switch>
+      <ThemeProvider theme={defaultTheme}>
+        <div className="App">
+          <Header />
+          <div className="app-container">
+            <Switch>
+              <Route exact path="/" component={Main} />
+              <Route exact path="/contacts" component={Contacts} />
+              <Route exact path="/contacts/add" component={Add} />
+              <Route exact path="/contacts/:id" component={Contact} />
+              <Route exact path="/contacts/:id/update" component={Update} />
+            </Switch>
+          </div>
         </div>
-      </div> 
+      </ThemeProvider>
     );
   }
 }
