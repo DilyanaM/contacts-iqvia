@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
-import { Mutation } from 'react-apollo';
+import { Redirect } from 'react-router-dom';
+import { Mutation, MutationFunction } from 'react-apollo';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -113,7 +113,7 @@ class Form extends Component<{
           refetchQueries={() => [{ query: GET_CONTACTS }]}
           onCompleted={this.redirect}
         >
-          {(onMutate) => {
+          {(onMutate: MutationFunction) => {
             const submit = () => {
               mutation === 'ADD_CONTACT'
                 ? onMutate({ variables: { name, email } })

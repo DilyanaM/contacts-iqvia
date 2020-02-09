@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { Switch, Route } from "react-router";
-import "./App.css";
-import Header from "./components/layout/Header";
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import './App.css';
+import Header from './components/layout/Header';
 import Main from './components/main/Main';
-import Contacts from "./components/contacts/Contacts";
+import Contacts from './components/contacts/Contacts';
 import Contact from './components/contact/View';
 import Add from './components/contact/Add';
 import Update from './components/contact/Update';

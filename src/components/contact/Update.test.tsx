@@ -1,6 +1,6 @@
 import React from 'react';
 import { createMemoryHistory, createLocation } from 'history';
-import { match } from 'react-router';
+import { match } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import Update from './Update';
 

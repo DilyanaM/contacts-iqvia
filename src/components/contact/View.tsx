@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { RouteComponentProps, Redirect } from "react-router";
+import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { Query, Mutation } from 'react-apollo';
+import { Query, Mutation, MutationFunction, QueryResult } from 'react-apollo';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -25,7 +25,7 @@ class Contact extends Component<RouteComponentProps<any>> {
 
     return (
       <Query query={GET_CONTACT} variables={{ id }}>
-        {({ loading, error, data }) => {
+        {({ loading, error, data }: QueryResult) => {
           if (loading) return <Loader />;
           if (error) return <Error />;
           const { name, email } = data.contact;
@@ -53,7 +53,7 @@ class Contact extends Component<RouteComponentProps<any>> {
                   refetchQueries={() => [{ query: GET_CONTACTS }]}
                   onCompleted={this.redirect}
                 >
-                  {(onMutate) => {
+                  {(onMutate: MutationFunction) => {
                     const submit = () => onMutate({ variables: { id } });
                     return (
                       <Button
