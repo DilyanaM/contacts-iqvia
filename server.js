@@ -1,7 +1,7 @@
 const { ApolloServer } = require("apollo-server");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
-const uid = require("nanoid");
+const { nanoid } = require("nanoid");
 const adapter = new FileSync("contacts.json");
 const db = low(adapter);
 
@@ -24,7 +24,7 @@ const server = new ApolloServer({
     },
     Mutation: {
       async addContact(_, { contact }) {
-        let newContact = { ...contact, id: uid() };
+        let newContact = { ...contact, id: nanoid() };
         await db
           .get("contacts")
           .push(newContact)
