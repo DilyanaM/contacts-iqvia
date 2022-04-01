@@ -48,6 +48,6 @@
   ],
   "proxy": "http://localhost:3001",
   "devDependencies": {
-    "@types/material-ui": "^0.21.8"
+    "@types/material-ui": "^0.21.12"
   }
 }
